@@ -1,3 +1,4 @@
 Spring cloud services.
 
-1) Eureka-server: 8761
+1) Eureka-service: 8761
+2) Zuul-service: 8765
