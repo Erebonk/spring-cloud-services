@@ -23,9 +23,8 @@ class ProductControllerTest {
 
     @Test
     void searchShouldReturnAllAvailProducts_IfHp() {
-        var products = testRestTemplate.getForEntity("/products/search" + "?text=hp", Map.class);
+        var products = testRestTemplate.getForEntity("/products/search" + "?text=hp", Object.class);
         assertNotNull(products);
-
     }
 
 
