@@ -1,4 +1,9 @@
-Spring cloud services.
+🍀🎮 IT–shop project
 
-1) Eureka-service: 8761
-2) Zuul-service: 8765
+  Spring boot, JPA, Cloud.
+
+  Project has spring cloud realisation.
+  
+Avail services and ports: 
+  1) Eureka-service: 8761
+  2) Zuul-service: 8765
