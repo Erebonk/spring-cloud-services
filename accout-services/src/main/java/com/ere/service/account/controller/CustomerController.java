@@ -10,7 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.annotation.PostConstruct;
 import javax.validation.constraints.NotNull;
 
 @RestController
@@ -27,9 +26,9 @@ public class CustomerController {
                 .orElseThrow(() -> new UserNotFoundException("Customer not found!"));
     }
 
-    @PostConstruct
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> save(@Validated Customer customer) {
+    public ResponseEntity<Object> save(@Validated Customer customer) {
         var savedCustomer = customerRepository.save(customer);
         var location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{email}")
