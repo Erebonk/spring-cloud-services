@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: default
+  security:
+    user:
+      name: config-user
+      password: passWord-15
+      roles: ADMIN
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Erebonk/configurations
