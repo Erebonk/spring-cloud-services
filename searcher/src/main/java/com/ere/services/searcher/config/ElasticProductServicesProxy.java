@@ -1,5 +1,6 @@
 package com.ere.services.searcher.config;
 
+import com.ere.services.searcher.controller.ProductController;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

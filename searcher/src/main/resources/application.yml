@@ -17,3 +17,10 @@ spring:
 ribbon:
   restclient:
     enabled: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, info, health
