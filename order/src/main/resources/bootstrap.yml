@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: order-service
+  profiles:
+    active: dev
+
+  cloud:
+    config:
+      username: config-user
+      password: passWord-15
+      uri: http://localhost:8888/
