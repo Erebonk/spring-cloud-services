@@ -8,13 +8,25 @@ import lombok.experimental.Accessors;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQuery;
 import java.io.Serializable;
 
+/**
+ * Catalog price type
+ *
+ * @author ilya
+ * @version 1.0
+ */
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
+@NamedStoredProcedureQuery(
+        name = "findallpricetypes",
+        procedureName = "findallpricetypes",
+        resultClasses = PriceType.class
+)
 public class PriceType implements Serializable {
 
     @Id
