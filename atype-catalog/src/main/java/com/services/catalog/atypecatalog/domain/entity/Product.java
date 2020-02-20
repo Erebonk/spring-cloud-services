@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -22,6 +20,33 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
+@NamedStoredProcedureQuery(
+        name = "findallproducts",
+        procedureName = "findallproducts",
+        resultClasses = Product.class,
+        parameters = {
+                @StoredProcedureParameter(
+                        name = "priceType",
+                        type = String.class,
+                        mode = ParameterMode.IN
+                ),
+                @StoredProcedureParameter(
+                        name = "username",
+                        type = String.class,
+                        mode = ParameterMode.IN
+                ),
+                @StoredProcedureParameter(
+                        name = "password",
+                        type = String.class,
+                        mode = ParameterMode.IN
+                ),
+                @StoredProcedureParameter(
+                        name = "categoryId",
+                        type = String.class,
+                        mode = ParameterMode.IN
+                )
+        }
+)
 public class Product implements Serializable {
 
     @Id

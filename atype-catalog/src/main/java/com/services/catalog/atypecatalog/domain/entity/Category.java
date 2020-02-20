@@ -5,16 +5,37 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Product's category
+ *
+ * @author ilya
+ * @version 1.0
+ */
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
+@NamedStoredProcedureQuery(
+        name = "findallcategories",
+        procedureName = "findallcategories",
+        resultClasses = Category.class,
+        parameters = {
+                @StoredProcedureParameter(
+                        name = "username",
+                        type = String.class,
+                        mode = ParameterMode.IN
+                ),
+                @StoredProcedureParameter(
+                        name = "password",
+                        type = String.class,
+                        mode = ParameterMode.IN
+                )
+        }
+)
 public class Category implements Serializable {
 
     @Id
@@ -23,6 +44,5 @@ public class Category implements Serializable {
 
     @Column(name = "name")
     private String name;
-
 
 }

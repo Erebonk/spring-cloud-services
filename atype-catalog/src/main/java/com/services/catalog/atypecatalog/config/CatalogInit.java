@@ -1,9 +1,6 @@
 package com.services.catalog.atypecatalog.config;
 
 import com.services.catalog.atypecatalog.domain.entity.PriceType;
-import com.services.catalog.atypecatalog.repository.CategoryRepository;
-import com.services.catalog.atypecatalog.repository.PriceTypeRepository;
-import com.services.catalog.atypecatalog.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;

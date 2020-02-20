@@ -1,6 +1,8 @@
 package com.services.catalog.atypecatalog.controller;
 
-import com.services.catalog.atypecatalog.domain.exception.PriceTypeException;
+import com.services.catalog.atypecatalog.domain.exception.CategoryReqException;
+import com.services.catalog.atypecatalog.domain.exception.PriceTypeReqException;
+import com.services.catalog.atypecatalog.domain.exception.ProductReqException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,8 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class CatalogControllerAdvice {
 
     @ResponseStatus(HttpStatus.BAD_GATEWAY)
-    @ExceptionHandler(PriceTypeException.class)
-    private String priceTypeEx(PriceTypeException ex) {
+    @ExceptionHandler(PriceTypeReqException.class)
+    private String priceTypeEx(PriceTypeReqException ex) {
+        return ex.getMessage();
+    }
+
+    @ResponseStatus(HttpStatus.BAD_GATEWAY)
+    @ExceptionHandler(ProductReqException.class)
+    private String productEx(ProductReqException ex) {
+        return ex.getMessage();
+    }
+
+    @ResponseStatus(HttpStatus.BAD_GATEWAY)
+    @ExceptionHandler(CategoryReqException.class)
+    private String categoriesEx(CategoryReqException ex) {
         return ex.getMessage();
     }
 

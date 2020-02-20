@@ -12,7 +12,7 @@ import javax.persistence.NamedStoredProcedureQuery;
 import java.io.Serializable;
 
 /**
- * Catalog price type
+ * Catalog's price type
  *
  * @author ilya
  * @version 1.0

@@ -1,7 +1,7 @@
 package com.services.catalog.atypecatalog.controller;
 
 import com.services.catalog.atypecatalog.domain.entity.PriceType;
-import com.services.catalog.atypecatalog.domain.exception.PriceTypeException;
+import com.services.catalog.atypecatalog.domain.exception.PriceTypeReqException;
 import com.services.catalog.atypecatalog.service.catalog.PriceTypeServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/pricetype")
+@RequestMapping("/types")
 @RequiredArgsConstructor
 public class PriceTypeController {
 
@@ -29,7 +29,7 @@ public class PriceTypeController {
     @ResponseStatus(HttpStatus.OK)
     public List<PriceType> getPriceType() {
         return priceTypeServices.getPriceTypes()
-                .orElseThrow(() -> new PriceTypeException("There aren't avail categories"));
+                .orElseThrow(() -> new PriceTypeReqException("There aren't avail categories"));
     }
 
 }

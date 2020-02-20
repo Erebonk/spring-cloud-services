@@ -1,7 +1,6 @@
 package com.services.catalog.atypecatalog.service.catalog.impl;
 
 import com.services.catalog.atypecatalog.domain.entity.PriceType;
-import com.services.catalog.atypecatalog.repository.PriceTypeRepository;
 import com.services.catalog.atypecatalog.service.catalog.PriceTypeServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PriceTypeServicesImpl implements PriceTypeServices {
 
-    private final PriceTypeRepository priceTypeRepository;
     private final EntityManager entityManager;
 
     @Override
