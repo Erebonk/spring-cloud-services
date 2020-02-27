@@ -9,6 +9,6 @@
 Avail services and ports: 
   1) Eureka-service: 8761
   2) Zuul-service: 8765
-  3) Atype-catalog: 9001 and 9002
-  4) Btype-catalog: 9003 and 9003
+  3) Atype-catalog: 9001 and 9002 (JPA with postgres)
+  4) Btype-catalog: 9003 and 9003 (JPA with postgres)
   5) gateway-balancer: 9004 port
