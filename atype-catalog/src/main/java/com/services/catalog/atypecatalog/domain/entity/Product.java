@@ -26,7 +26,7 @@ public class Product implements Serializable {
 
     private BigDecimal price;
 
-    private String vendorCode;
+    private String partnumber;
 
     private String amountOnStock;
 

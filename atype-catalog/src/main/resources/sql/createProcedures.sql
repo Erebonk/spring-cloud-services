@@ -1,7 +1,7 @@
-create function findproducts(category_pattern character varying)
-    returns TABLE(id integer, stock_far integer, stock_main integer,
-    descr character varying, pricen numeric, partnumber character varying,
-     category character varying)
+create or replace function dealers.findproducts(category_pattern varchar)
+    returns TABLE(id integer, stock_far varchar, stock_main varchar,
+                  descr character varying, pricen numeric, partnumber varchar,
+                  category varchar)
     language plpgsql
 as
 $$
@@ -10,13 +10,13 @@ BEGIN
     then
         begin
             RETURN QUERY SELECT
-                             t.id, t.stock_far, t.stock_main, t.descr, t.pricen, t,partnumber, t.category
+                             t.id, t.stock_far, t.stock_main, t.descr, t.pricen, t.partnumber, t.category
                          FROM dealers.product as t;
         end;
     else
         begin
             RETURN QUERY SELECT
-                             t.id, t.stock_far, t.stock_main, t.descr, t.pricen, t,partnumber, t.category
+                             t.id, t.stock_far, t.stock_main, t.descr, t.pricen, t.partnumber, t.category
                          FROM dealers.product as t
                          where t.category = category_pattern;
         end;
@@ -24,5 +24,5 @@ BEGIN
 END;
 $$;
 
-alter function findproducts(varchar) owner to postgres;
+alter function dealers.findproducts(varchar) owner to postgres;
 
