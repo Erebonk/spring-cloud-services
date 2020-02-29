@@ -17,7 +17,12 @@ class PriceTypeServicesImplTest {
     void shouldReturnAvailPriceTypes() {
         var availTypes = priceTypeServices.getPriceTypes();
         assertTrue(availTypes.isPresent());
-        availTypes.get().forEach(types -> {
+
+        var availTypesList = availTypes.get();
+        assertNotNull(availTypesList);
+        assertFalse(availTypesList.isEmpty());
+
+        availTypesList.forEach(types -> {
             assertNotNull(types.getId());
             assertNotNull(types.getName());
         });

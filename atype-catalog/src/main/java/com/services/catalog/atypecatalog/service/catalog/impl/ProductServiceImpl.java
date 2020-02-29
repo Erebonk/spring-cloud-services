@@ -5,8 +5,6 @@ import com.services.catalog.atypecatalog.service.catalog.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,16 +12,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    private final EntityManager entityManager;
-
     @Override
     public Optional<List<Product>> getProducts(String categoryId, String priceType, String username, String password) {
-       var procedure = entityManager.createNamedStoredProcedureQuery("findallproducts");
-       procedure.setParameter("pricetype", priceType);
-       procedure.setParameter("categoryId", categoryId);
-       procedure.setParameter("username", username);
-       procedure.setParameter("password", password);
-       return Optional.of((ArrayList<Product>) procedure.getResultList());
+        return Optional.empty();
     }
 
 }

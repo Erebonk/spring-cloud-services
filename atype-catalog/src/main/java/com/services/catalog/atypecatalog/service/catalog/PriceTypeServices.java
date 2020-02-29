@@ -13,4 +13,5 @@ public interface PriceTypeServices {
      * @return list with priceTypes
      */
     Optional<List<PriceType>> getPriceTypes();
+
 }

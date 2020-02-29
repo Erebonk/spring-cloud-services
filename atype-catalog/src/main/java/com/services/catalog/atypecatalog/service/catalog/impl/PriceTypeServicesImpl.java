@@ -1,11 +1,13 @@
 package com.services.catalog.atypecatalog.service.catalog.impl;
 
 import com.services.catalog.atypecatalog.domain.entity.PriceType;
+import com.services.catalog.atypecatalog.repository.PriceTypeMapper;
 import com.services.catalog.atypecatalog.service.catalog.PriceTypeServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,13 +21,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PriceTypeServicesImpl implements PriceTypeServices {
 
-    private final EntityManager entityManager;
+    private final PriceTypeMapper priceTypeMapper;
 
     @Override
     public Optional<List<PriceType>> getPriceTypes() {
-        var procedure = entityManager.createNamedStoredProcedureQuery("findallpricetypes");
-        var result = (List<PriceType>) procedure.getResultList();
-        return Optional.of(result);
+        var priceTypes = priceTypeMapper.getPriceTypes();
+        return Optional.of(priceTypes);
     }
 
 }
