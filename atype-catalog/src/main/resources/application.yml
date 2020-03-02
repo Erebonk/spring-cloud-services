@@ -1,5 +1,4 @@
 server:
   port: 9991
-
 mybatis:
   type-aliases-package: com/services/catalog/atypecatalog/domain/entity
