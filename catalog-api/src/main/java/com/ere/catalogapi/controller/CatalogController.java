@@ -26,8 +26,8 @@ public class CatalogController {
     @ResponseStatus(HttpStatus.OK)
     @HystrixCommand(fallbackMethod = "categoriesError")
     @GetMapping("/categories")
-    public Object getCategories(@RequestParam String priceTypes) {
-        return atypeProxyService.getCategories(priceTypes);
+    public Object getCategories() {
+        return atypeProxyService.getCategories("null","null");
     }
 
 
@@ -36,7 +36,7 @@ public class CatalogController {
     @GetMapping("/products")
     public Object getProducts(@RequestParam String priceTypes,
                               @RequestParam String category) {
-        return atypeProxyService.getProducts(priceTypes, category);
+        return atypeProxyService.getProducts("null", "null", priceTypes, category);
 
     }
 

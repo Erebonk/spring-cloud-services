@@ -6,16 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "atype-catalog")
-@RibbonClient(name = "atype-service")
+@RibbonClient(name = "atype-catalog")
 public interface AtypeProxyService {
 
-    @GetMapping("catalog/types")
+    @GetMapping("types")
     Object getPriceTypes();
 
-    @GetMapping("catalog/category")
-    Object getCategories(@RequestParam("priceType") String priceType);
+    @GetMapping("categories")
+    Object getCategories(@RequestParam("username") String priceType, @RequestParam("password") String password);
 
-    @GetMapping("catalog/product")
-    Object getProducts(@RequestParam("priceType") String priceType, @RequestParam("categoryId") String categoryId);
+    @GetMapping("products")
+    Object getProducts(@RequestParam("username") String username, @RequestParam("password") String password,
+            @RequestParam("priceType") String priceType, @RequestParam("categoryId") String categoryId);
 
 }

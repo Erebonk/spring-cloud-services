@@ -13,3 +13,7 @@ spring:
 ribbon:
   restclient:
     enabled: true
+
+feign:
+  hystrix:
+    enabled: true
