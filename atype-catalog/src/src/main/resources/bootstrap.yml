@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: atype-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      password: passWord-15
+      username: config-user
+      uri: http://localhost:8888/
+
+eureka:
+  instance:
+    appname: atype-service
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
