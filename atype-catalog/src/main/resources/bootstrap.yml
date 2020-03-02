@@ -1,6 +1,6 @@
 spring:
   application:
-    name: atype-service
+    name: atype-catalog
   profiles:
     active: dev
   cloud:
