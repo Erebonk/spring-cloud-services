@@ -1,0 +1,19 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: security-service
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eureka%2Dclient:526982649a256cd93ca8d22cc394d5b1660254d4e2fb0982a71986e8b0e0374c@localhost:8761/eureka}
+  instance:
+    preferIpAddress: false
+
+ribbon:
+  eureka:
+    enabled: false
