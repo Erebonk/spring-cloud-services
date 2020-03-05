@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "atype-catalog", fallback = FallbackController.class)
+@FeignClient(name = "atype-service", fallback = FallbackController.class)
 public interface AtypeProxyService {
 
     @GetMapping("types")
