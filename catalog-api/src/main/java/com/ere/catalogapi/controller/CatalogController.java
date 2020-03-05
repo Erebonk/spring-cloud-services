@@ -1,13 +1,12 @@
 package com.ere.catalogapi.controller;
 
 import com.ere.catalogapi.service.AtypeProxyService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("v1/catalog")
@@ -17,44 +16,20 @@ public class CatalogController {
     private final AtypeProxyService atypeProxyService;
 
     @GetMapping("/types")
-    @ResponseStatus(HttpStatus.OK)
-    @HystrixCommand(fallbackMethod = "defaultCatList")
-    public Object getPriceTypes() {
+    public ResponseEntity<?> getPriceTypes() {
         return atypeProxyService.getPriceTypes();
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @HystrixCommand(fallbackMethod = "categoriesError")
     @GetMapping("/categories")
-    public Object getCategories() {
+    public ResponseEntity<?> getCategories() {
         return atypeProxyService.getCategories("null","null");
     }
 
-
-    @ResponseStatus(HttpStatus.OK)
-    @HystrixCommand(fallbackMethod = "productsError")
     @GetMapping("/products")
-    public Object getProducts(@RequestParam String priceTypes,
+    public ResponseEntity<?> getProducts(@RequestParam String priceTypes,
                               @RequestParam String category) {
         return atypeProxyService.getProducts("null", "null", priceTypes, category);
 
-    }
-
-    @ResponseStatus(HttpStatus.BAD_GATEWAY)
-    public String productsError() {
-        return "Problem with products method";
-    }
-
-    @ResponseStatus(HttpStatus.BAD_GATEWAY)
-    public String categoriesError() {
-        return "Problem with categories service...";
-    }
-
-    public List<String> defaultCatList() {
-        return new ArrayList<>() {{
-            add("All");
-            add("Avail");
-        }};
     }
 
 }

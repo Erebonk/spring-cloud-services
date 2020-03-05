@@ -1,8 +1,8 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-    fetchRegistry: true
+      defaultZone: http://eureka-client:526982649a256cd93ca8d22cc394d5b1660254d4e2fb0982a71986e8b0e0374c@localhost:8761/eureka/
+      fetch-registry: true
     register-with-eureka: true
   instance:
     appname: catalog-gateway

@@ -1,0 +1,19 @@
+server:
+  port: 9991
+mybatis:
+  type-aliases-package: com/services/catalog/atypecatalog/domain/entity
+
+spring:
+  jpa:
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=dealers
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver

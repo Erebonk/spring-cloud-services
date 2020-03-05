@@ -23,7 +23,7 @@ public class CategoryServicesImpl implements CategoryService {
 
     @Override
     public Optional<List<Category>> getCategory(String username, String password) {
-       return Optional.of(categoryMapper.getAllCategories());
+        return Optional.of(categoryMapper.getAllCategories());
     }
 
 }

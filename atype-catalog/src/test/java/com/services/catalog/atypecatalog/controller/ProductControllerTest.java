@@ -34,7 +34,7 @@ class ProductControllerTest {
 
     @Test
     void shouldReturnAvailProducts() throws Exception {
-        given(productService.getProducts("null", "null", "null","null"))
+        given(productService.getProducts("null", "null", "null", "null"))
                 .willReturn(Optional.of(Collections.singletonList(new Product().setId("id").setName("hp"))));
 
         this.mockMvc.perform(get("/products?username=null&password=null&categoryId=null&catalogType=null"))

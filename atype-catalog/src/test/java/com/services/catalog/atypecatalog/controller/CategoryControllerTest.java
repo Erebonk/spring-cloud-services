@@ -35,7 +35,7 @@ class CategoryControllerTest {
                 .willReturn(Optional.of(Collections.singletonList(new Category().setId("1").setName("category"))));
 
         this.mockMvc.perform(get("/categories?username=d&password=2"))
-            .andDo(print())
+                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("category")));
     }
